@@ -9,7 +9,18 @@ let defaultTodos = {
 }
 
 // write a reducer that updated the todos array whenever a ADD_TODO action is dispatched
-let reducer4 = (state = defaultTodos, action) => defaultTodos;
+let reducer4 = (state = defaultTodos, action) => {
+
+	var stateCopy = Object.assign({}, state);// This is a very ES5 way to copy an object 
+
+	if (action.type == "ADD_TODO") {
+		stateCopy.todos.push(action.todoText)
+    console.log(stateCopy.todos);
+		return stateCopy;
+	}
+
+	return state;
+}
 
 let store4 = Redux.createStore(reducer4);
 

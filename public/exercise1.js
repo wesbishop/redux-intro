@@ -3,13 +3,9 @@
 // This is because the reducer isn't implemented 
 
 let reducer1 = (state = 0, action) => {
-	// Write code here that will:
-	// 1) check to see if the action is of type "INCREMENT" (see the dispatch call below)
-	// 2) return state + 1 if it's and "INCREMENT"
-	// 3) otherwise just return state
-	// (HINT - look at the other exercises to see what might go here)
-	return state;
-}
+	 state += (action.type == "INCREMENT") ? 1 : 0;
+	 return state++;
+} 
 
 let store1 = Redux.createStore(reducer1);
 
@@ -17,7 +13,7 @@ let buttonHTML = document.getElementById('counter1-button');
 let counterHTML1 = document.getElementById('counter1-text');
 
 store1.subscribe(()=>{
-	let counterValue = store1.getState();
+  let counterValue = store1.getState();
 	counterHTML1.innerHTML = counterValue;
 })
 
